@@ -1,0 +1,28 @@
+{
+  "name": "1102-web-mern76",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server_76.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server_76.js",
+    "dev": "nodemon server_76.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chen945/1102-web-mern76.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chen945/1102-web-mern76/issues"
+  },
+  "homepage": "https://github.com/chen945/1102-web-mern76#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
