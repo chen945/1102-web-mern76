@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
+import bcrypt from "bcryptjs";
+
 const UserSchema_76 = new mongoose.Schema({
     name: {
         type: String,
@@ -37,4 +39,9 @@ const UserSchema_76 = new mongoose.Schema({
     },
 });
 
+UserSchema_76.pre("save", async function () {
+    console.log("password", this.password);
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+});
 export default mongoose.model("User_76", UserSchema_76);
