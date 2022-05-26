@@ -5,7 +5,9 @@
   "main": "server_76.js",
   "type": "module",
   "scripts": {
-    "start": "node server_76.js",
+    "server": "nodemon server_76.js",
+    "client": "npm start --prefix client_76",
+    "start": "concurrently --kill-others-on-fail \" npm run server \"\"npm run client \" ",
     "dev": "nodemon server_76.js"
   },
   "repository": {
@@ -31,6 +33,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "concurrently": "^7.2.1",
     "nodemon": "^2.0.15"
   }
 }
