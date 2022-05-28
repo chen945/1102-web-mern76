@@ -7,6 +7,7 @@ dotenv.config();
 import "express-async-errors";
 
 import morgan from "morgan";
+import cors from "cors";
 
 // db and authenticateUser
 import connectDB_76 from "./db/connect_76.js";
@@ -19,7 +20,7 @@ import errorHandlerMiddleware_76 from "./middleware/error-handler_76.js";
 if (process.env.NODE.ENV !== "production") {
     app.use(morgan("dev"));
 }
-
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -27,13 +28,14 @@ app.get("/", (req, res) => {
     res.send("Welcome Doris 207410076");
 });
 app.use("/api/v1/auth_76", authRoutes_76);
+
 app.use(notFoundMiddleware_76);
 app.use(errorHandlerMiddleware_76);
 const port = process.env.PORT || 5000;
 
 const start = async () => {
     try {
-        await connectDB_76(process.env.MONGO_LOCAL_URL).then(() => {
+        await connectDB_76(process.env.MONGO_URL).then(() => {
             console.log("Connecting to MongoDB");
         });
         app.listen(port, () =>
