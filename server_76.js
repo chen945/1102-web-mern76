@@ -25,7 +25,8 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
     // throw new Error("testing for error"); //強制讓它出現錯誤
-    res.send("Welcome Doris 207410076");
+    // res.send("Welcome Doris 207410076");
+    res.json({ msg: "Welcome Doris 207410076" });
 });
 app.use("/api/v1/auth_76", authRoutes_76);
 
@@ -35,7 +36,7 @@ const port = process.env.PORT || 5000;
 
 const start = async () => {
     try {
-        await connectDB_76(process.env.MONGO_URL).then(() => {
+        await connectDB_76(process.env.MONGO_Local_URL).then(() => {
             console.log("Connecting to MongoDB");
         });
         app.listen(port, () =>
