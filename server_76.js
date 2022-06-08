@@ -7,7 +7,7 @@ dotenv.config();
 import "express-async-errors";
 
 import morgan from "morgan";
-import cors from "cors";
+// import cors from "cors";
 
 // db and authenticateUser
 import connectDB_76 from "./db/connect_76.js";
@@ -20,7 +20,7 @@ import errorHandlerMiddleware_76 from "./middleware/error-handler_76.js";
 if (process.env.NODE.ENV !== "production") {
     app.use(morgan("dev"));
 }
-app.use(cors()); //若要使用proxy則必須關掉
+// app.use(cors()); //若要使用proxy則必須關掉
 app.use(express.json());
 
 app.get("/", (req, res) => {
